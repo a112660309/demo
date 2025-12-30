@@ -1,92 +1,119 @@
 <!doctype html>
 <html lang="zh-TW">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我的履歷｜呂畇萱</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的首頁｜呂畇萱</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-<body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">ABOUT ME</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- ❗BMI 計算（完全照你原本的，不更動） -->
+    <script>
+      function calculateBMI() {
+        let height = document.getElementById("height").value;
+        let weight = document.getElementById("weight").value;
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">首頁</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="page2.html">履歷</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+        if (height === "" || weight === "") {
+          alert("請輸入身高和體重！");
+          return;
+        }
 
-<!-- Resume -->
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
+        // 身高轉成公尺
+        height = height / 100;
 
-      <!-- 個人資料 -->
-      <div class="card shadow text-center mb-4">
-        <div class="card-body">
+        let bmi = weight / (height * height);
+        bmi = bmi.toFixed(2);
 
-          <!-- ✅ AI 生成的大頭照（一定顯示） -->
+        let result = "";
+
+        if (bmi < 18.5) {
+          result = "體重過輕";
+        } else if (bmi < 24) {
+          result = "正常範圍";
+        } else if (bmi < 27) {
+          result = "過重";
+        } else {
+          result = "肥胖";
+        }
+
+        alert("你的 BMI 是：" + bmi + "\n判定結果：" + result);
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <!-- Navbar（你的原本 Navbar） -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1RO7tG.img?w=268&h=140&q=60&m=6&f=jpg&u=t"
+               width="30" height="24" class="d-inline-block align-text-top">
+          ABOUT ME
+        </a>
+      </div>
+    </nav>
+
+    <!-- ================== 個人履歷區（新增） ================== -->
+    <div class="container my-5">
+      <div class="row align-items-center">
+
+        <!-- 大頭照 -->
+        <div class="col-md-4 text-center mb-4">
           <img
             src="https://image.pollinations.ai/prompt/cute%20girl%20short%20medium%20hair%20ponytail%20glasses%20chubby%20cheeks%20sporty%20style%20cartoon%20illustration%20clean%20background"
-            alt="可愛運動風女生大頭照"
-            class="rounded-circle mb-3"
-            width="160"
-            height="160"
-          >
-
-          <h2 class="mt-2">呂畇萱</h2>
-          <p class="mb-1"><strong>學校：</strong>實踐大學 高雄校區</p>
-          <p class="mb-1"><strong>科系：</strong>東南亞智慧商務學士學位學程</p>
-          <p class="mb-1"><strong>學號：</strong>A112660309</p>
+            class="rounded-circle shadow"
+            style="width:200px;height:200px;object-fit:cover;"
+            alt="可愛運動風女生大頭照">
         </div>
-      </div>
 
-      <!-- 學經歷 -->
-      <div class="card shadow mb-4">
-        <div class="card-body">
-          <h4>學經歷</h4>
-          <ul>
-            <li>小學期間參與手球校隊與巧固球校隊</li>
-            <li>國中擔任班級衛生股長</li>
-            <li>高中擔任衛生股長與班長</li>
-            <li>大學擔任服務股長及系學會文書長</li>
-            <li>實踐大學高雄校區女籃校隊球員</li>
+        <!-- 履歷內容 -->
+        <div class="col-md-8">
+          <h2 class="fw-bold">呂畇萱</h2>
+          <p class="text-muted">實踐大學｜東南亞智慧商務學士學位學程</p>
+
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">🎓 學號：A112660309</li>
+            <li class="list-group-item">🏀 女籃校隊球員</li>
+            <li class="list-group-item">💻 專長：掃地</li>
+            <li class="list-group-item">❤️ 興趣：聽音樂、看鬼片</li>
           </ul>
         </div>
-      </div>
 
-      <!-- 專長與興趣 -->
-      <div class="card shadow mb-4">
-        <div class="card-body">
-          <h4>專長與興趣</h4>
-          <p><strong>專長：</strong>掃地</p>
-          <p><strong>興趣：</strong>聽音樂、看鬼片</p>
+      </div>
+    </div>
+
+    <!-- ================== BMI 區塊（你原本的） ================== -->
+    <div class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card shadow p-4">
+            <h3 class="text-center mb-3">BMI 計算器</h3>
+
+            <div class="mb-3">
+              <label class="form-label">身高（公分）</label>
+              <input type="number" id="height" class="form-control" placeholder="例如：170">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">體重（公斤）</label>
+              <input type="number" id="weight" class="form-control" placeholder="例如：60">
+            </div>
+
+            <button class="btn btn-primary w-100" onclick="calculateBMI()">
+              計算 BMI
+            </button>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
-</div>
 
-<footer class="bg-dark text-white text-center p-3">
-  © 2025 呂畇萱
-</footer>
-</body>
+    <footer class="bg-dark text-white text-center p-3">
+      © 2025 呂畇萱
+    </footer>
+
+  </body>
 </html>
 
 
